@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from '../AuthPage/AuthPage';
 import NewPuppyPage from '../NewPuppyPage/NewPuppyPage';
 import PuppyHistoryPage from '../PuppyHistoryPage/PuppyHistoryPage';
@@ -11,9 +11,17 @@ export default function App() {
   return (
     <main className="App">
       { user ?
-        <Route path="/puppies/new">
-          <NewPuppyPage />
-        </Route>
+        <>
+        <Switch>
+            <Route path="/puppies/new">
+              <NewPuppyPage />
+            </Route>
+            <Route path="/puppies">
+              <PuppyHistoryPage />
+            </Route>
+              <Redirect to="/puppies" />
+          </Switch>
+        </>
         :
         <AuthPage />
       }
