@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthPage from '../AuthPage/AuthPage';
 import NewPuppyPage from '../NewPuppyPage/NewPuppyPage';
 import PuppyHistoryPage from '../PuppyHistoryPage/PuppyHistoryPage';
+import NavBar from '../../components/NavBar/NavBar';
 import './App.css';
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
     <main className="App">
       { user ?
         <>
+        <NavBar />
         <Switch>
             <Route path="/puppies/new">
               <NewPuppyPage />
