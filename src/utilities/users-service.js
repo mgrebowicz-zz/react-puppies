@@ -10,6 +10,11 @@ export async function signUp(userData) {
     }
 }
 
+export function checkToken() {
+    return usersAPI.checkToken()
+        .then(dateStr => new Date(dateStr));
+}
+
 export function getToken() {
     const token = localStorage.getItem('token');
     if (!token) return null;
@@ -39,3 +44,5 @@ export async function login(credentials) {
         throw new Error('Bad Credentials');
     }
 }
+
+
