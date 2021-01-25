@@ -1,22 +1,24 @@
 import { useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { getUser } from '../../utilities/users-service';
+import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import NewPuppyPage from '../NewPuppyPage/NewPuppyPage';
 import PuppyHistoryPage from '../PuppyHistoryPage/PuppyHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
-import './App.css';
+
 
 export default function App() {
-  const [user, setUser] = useState(null); 
+  const [user, setUser] = useState(getUser()); 
 
   return (
     <main className="App">
       { user ?
         <>
-        <NavBar />
+        <NavBar user={user} setUser={setUser} />
         <Switch>
             <Route path="/puppies/new">
-              <NewPuppyPage />
+              <NewPuppyPage user={user} setUser={setUser}/>
             </Route>
             <Route path="/puppies">
               <PuppyHistoryPage />
@@ -25,7 +27,7 @@ export default function App() {
           </Switch>
         </>
         :
-        <AuthPage />
+        <AuthPage setUser={setUser} />
       }
     </main>
   );
