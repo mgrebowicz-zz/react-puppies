@@ -1,17 +1,24 @@
 import * as usersService from '../../utilities/users-service';
 
-export default function PuppyIndexPage() {
-    
-    async function handleCheckToken() {
-        // Promise will resolve to a Date object
-        const expDate = await usersService.checkToken();
-        console.log(new Date(expDate));
-    }
+import React from 'react';
+import './PuppyIndexPage.css';
+import PuppyListItem from '../../components/PuppyListItem/PuppyListItem';
 
+function PuppyListPage(props) {
     return (
-        <main>
-            <h1>PuppyIndexPage</h1>
-            <button onClick={handleCheckToken} variant="contained" color="primary">Check When My Login Expires</button>
-        </main>
+        <>
+            <h1>Puppy Index</h1>
+            {/* <div className='PuppyListPage-grid'>
+                {props.puppies.map(puppy =>
+                    <PuppyListItem
+                        puppy={puppy}
+                        key={puppy._id}
+                        handleDeletePuppy={props.handleDeletePuppy}
+                    />
+                )}
+            </div> */}
+        </>
     );
 }
+
+export default PuppyListPage;
