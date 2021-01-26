@@ -9,9 +9,9 @@ export default function NavBar({setUser}) {
     }
     return (
         <nav>
-            <Link to="/puppies">Puppy History</Link>
+            <Link to="/puppies">Puppy Index</Link>
             &nbsp; | &nbsp;
-            <Link to="/puppies/new">New Puppy</Link>
+            <Link to="/puppies/new">Add a Puppy</Link>
              {/* &nbsp;&nbsp;<span>Welcome, {user.name}</span> */}
             &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
         </nav>

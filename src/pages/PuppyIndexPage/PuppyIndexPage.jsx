@@ -1,7 +1,6 @@
 import * as usersService from '../../utilities/users-service';
 
-
-export default function PuppyHistoryPage() {
+export default function PuppyIndexPage() {
     
     async function handleCheckToken() {
         // Promise will resolve to a Date object
@@ -11,8 +10,8 @@ export default function PuppyHistoryPage() {
 
     return (
         <main>
-            <h1>PuppyHistoryPage</h1>
-            <button onClick={handleCheckToken}>Check When My Login Expires</button>
+            <h1>PuppyIndexPage</h1>
+            <button onClick={handleCheckToken} variant="contained" color="primary">Check When My Login Expires</button>
         </main>
     );
 }

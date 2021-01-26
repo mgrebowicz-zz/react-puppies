@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
+import { Button, Input, FormControl } from '@material-ui/core';
+
 
 export default class SignUpForm extends Component {
     state = {
@@ -35,16 +37,22 @@ export default class SignUpForm extends Component {
         return (
             <div>
                 <div className="form-container">
-                    <form autoComplete="off" onSubmit={this.handleSubmit}>
-                        <label>Name</label>
-                        <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-                        <label>Email</label>
+                    <form autoComplete="off" onSubmit={this.handleSubmit}>  
+                        <FormControl>                            
+                            <Input placeholder="Name" type="text" name="name" value={this.state.name} onChange={this.handleChange} />                           
+                            <Input placeholder="Email" type="email" name="email" value={this.state.email} onChange={this.handleChange} />  
+                            <Input placeholder="Password" type="password" name="password" value={this.state.password} onChange={this.handleChange} />
+                            <Input placeholder="Confirm" type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} />
+                        </FormControl>
+                        {/* <label>Name</label>
+                        <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required /> */}
+                        {/* <label>Email</label>
                         <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
                         <label>Password</label>
                         <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
                         <label>Confirm</label>
-                        <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-                        <button type="submit" disabled={disable}>SIGN UP</button>
+                        <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required /> */}
+                        <Button variant="contained" color="primary" type="submit" disabled={disable}>SIGN UP</Button>
                     </form>
                 </div>
                 <p className="error-message">&nbsp;{this.state.error}</p>
